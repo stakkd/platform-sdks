@@ -5,3 +5,6 @@ The Stakkd platform provides SDKs generated using the `openapi-generate` tool. S
 - [Java](./java)
 - [C#](./csharp)
 - [JavaScript](./javascript)
+- [Python](./python)
+- [Ruby](./ruby)
+- [Go](./go)
