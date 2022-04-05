@@ -9,5 +9,8 @@ The Stakkd platform provides SDKs generated using the `openapi-generate` tool. S
 - [Ruby](./ruby)
 - [Go](./go)
 - [PHP](./php)
+- [Android](./android)
+- [Apex](./apex)
+- [Swift](./swift)
 
 These generated SDKs are meant to provide example usage of the Stakkd API. These generated SDKs are currently not supported.
