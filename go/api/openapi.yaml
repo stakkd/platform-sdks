@@ -1,0 +1,2652 @@
+openapi: 3.0.1
+info:
+  description: |
+    # Introduction
+    The Stakkd platform provides comprehensive data services that meet the business
+    objectives of organizations ranging from Fortune 500 companies to startups.
+    Our clients work in an array of industries, including insurance, financial, legal, travel, hospitality, retail, health, media, and telecommunications.
+
+    The Stakkd API is documented using the Open API 3.0.1 standard.
+
+    All endpoints are available at https://api.stakkd.io/v1. Detailed documentation for each endpoint is below, including the full URL for the endpoint.
+
+    # Account Types
+    The API supports two different account types, each with different permissions.
+
+    ## Paid Account
+    Paid accounts provide unlimited access to all of the URIs.
+
+    ## Trial Account
+    Trial Accounts have a limited number of queries to the APIs. Keep in mind that
+    queries which do not return results still count against the Trial Account query limits.
+    Trial Accounts are temporary, but can be upgraded or extended by contacting [support@stakkd.io](mailto:support@stakkd.io)
+  title: Stakkd API
+  version: v1
+  x-logo:
+    url: https://s3.amazonaws.com/api-docs.stakkd.io/logo-dark-theme.png
+    altText: Stakkd.io
+servers:
+- url: https://api.stakkd.io/v1
+paths:
+  /append/demographics:
+    post:
+      parameters:
+      - explode: false
+        in: header
+        name: Content-Type
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: header
+        name: x-api-key
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/demographicsAppendRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/demographicsAppendResponse'
+          description: 200 response
+        "204":
+          content: {}
+          description: 204 response
+        "400":
+          content: {}
+          description: 400 response
+        "403":
+          content: {}
+          description: 403 response
+        "429":
+          content: {}
+          description: 429 response
+        "500":
+          content: {}
+          description: 500 response
+      security:
+      - apiKey: []
+      tags:
+      - append
+      x-codeSamples:
+      - lang: cURL
+        label: cURL
+        source: |
+          curl -X POST -H "Content-Type: application/json" -H "x-api-key: {yourKey}" -H "Cache-Control: no-cache" -d '{
+          "firstName": "Richard",
+          "lastName": "Young",
+          "address1": "4689 Lakewood Drive",
+          "city": "Fleming Island",
+          "state": "FL"
+          }' "https://api.stakkd.io/v1/append/demographics"
+  /append/email:
+    post:
+      parameters:
+      - explode: false
+        in: header
+        name: Content-Type
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: header
+        name: x-api-key
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/emailAppendRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/emailAppendResponse'
+          description: 200 response
+        "204":
+          content: {}
+          description: 204 response
+        "400":
+          content: {}
+          description: 400 response
+        "403":
+          content: {}
+          description: 403 response
+        "429":
+          content: {}
+          description: 429 response
+        "500":
+          content: {}
+          description: 500 response
+      security:
+      - apiKey: []
+      tags:
+      - append
+      x-codeSamples:
+      - lang: cURL
+        label: cURL
+        source: |
+          curl -X POST -H "Content-Type: application/json" -H "x-api-key: {yourKey}" -H "Cache-Control: no-cache" -d '{
+          "firstName": "Richard",
+          "lastName": "Young",
+          "address1": "4689 Lakewood Drive",
+          "city": "Fleming Island",
+          "state": "FL"
+          }' "https://api.stakkd.io/v1/append/email"
+  /append/mobile:
+    post:
+      parameters:
+      - explode: false
+        in: header
+        name: Content-Type
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: header
+        name: x-api-key
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/mobileAppendRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/mobileAppendResponse'
+          description: 200 response
+        "204":
+          content: {}
+          description: 204 response
+        "400":
+          content: {}
+          description: 400 response
+        "403":
+          content: {}
+          description: 403 response
+        "429":
+          content: {}
+          description: 429 response
+        "500":
+          content: {}
+          description: 500 response
+      security:
+      - apiKey: []
+      tags:
+      - append
+      x-codeSamples:
+      - lang: cURL
+        label: cURL
+        source: |
+          curl -X POST -H "Content-Type: application/json" -H "x-api-key: {yourKey}" -H "Cache-Control: no-cache" -d '{ "firstName": "Richard", "lastName": "Young", "address1": "4689 Lakewood Drive", "city": "Fleming Island", "state": "FL" }' "https://api.stakkd.io/v1/append/mobile"
+  /append/phone:
+    post:
+      parameters:
+      - explode: false
+        in: header
+        name: Content-Type
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: header
+        name: x-api-key
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/phoneAppendRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/phoneAppendResponse'
+          description: 200 response
+        "204":
+          content: {}
+          description: 204 response
+        "400":
+          content: {}
+          description: 400 response
+        "403":
+          content: {}
+          description: 403 response
+        "429":
+          content: {}
+          description: 429 response
+        "500":
+          content: {}
+          description: 500 response
+      security:
+      - apiKey: []
+      tags:
+      - append
+      x-codeSamples:
+      - lang: cURL
+        label: cURL
+        source: |
+          curl -X POST -H "Content-Type: application/json" -H "x-api-key: {yourKey}" -H "Cache-Control: no-cache" -d '{ "firstName": "Richard", "lastName": "Young", "address1": "4689 Lakewood Drive", "city": "Fleming Island", "state": "FL" }' "https://api.stakkd.io/v1/append/phone"
+  /append/vehicle:
+    post:
+      parameters:
+      - explode: false
+        in: header
+        name: Content-Type
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: header
+        name: x-api-key
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/vehicleAppendRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/vehicleAppendResponse'
+          description: 200 response
+        "204":
+          content: {}
+          description: 204 response
+        "400":
+          content: {}
+          description: 400 response
+        "403":
+          content: {}
+          description: 403 response
+        "429":
+          content: {}
+          description: 429 response
+        "500":
+          content: {}
+          description: 500 response
+      security:
+      - apiKey: []
+      tags:
+      - append
+      x-codeSamples:
+      - lang: cURL
+        label: cURL
+        source: |
+          curl -X POST -H "x-api-key: {your key here}" -H "Content-Type: application/json" -d '{ “firstName”: “John”, "lastName”: “Smith”, “address1”: “425 S. Avalon Park BLVD”, “zipcode”: “32828” }' " https://api.stakkd.io/v1/append/vehicle"
+  /lookup/email:
+    post:
+      parameters:
+      - explode: false
+        in: header
+        name: Content-Type
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: header
+        name: x-api-key
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/emailLookupRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/lookupResponse'
+          description: 200 response
+        "204":
+          content: {}
+          description: 204 response
+        "400":
+          content: {}
+          description: 400 response
+        "403":
+          content: {}
+          description: 403 response
+        "429":
+          content: {}
+          description: 429 response
+        "500":
+          content: {}
+          description: 500 response
+      security:
+      - apiKey: []
+      tags:
+      - lookup
+      x-codeSamples:
+      - lang: cURL
+        label: cURL
+        source: |
+          curl -X POST -H "Content-Type: application/json" -H "x-api-key: {yourKey}" -H "Cache-Control: no-cache" -d '{ "email": "richard.young@fakeemail.com" }' "https://api.stakkd.io/v1/lookup/email"
+  /lookup/ip:
+    post:
+      parameters:
+      - explode: false
+        in: header
+        name: Content-Type
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: header
+        name: x-api-key
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ipLookupRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ipLookupResponse'
+          description: 200 response
+        "204":
+          content: {}
+          description: 204 response
+        "400":
+          content: {}
+          description: 400 response
+        "403":
+          content: {}
+          description: 403 response
+        "429":
+          content: {}
+          description: 429 response
+        "500":
+          content: {}
+          description: 500 response
+      security:
+      - apiKey: []
+      tags:
+      - lookup
+      x-codeSamples:
+      - lang: cURL
+        label: cURL
+        source: |
+          curl -X POST -H "Content-Type: application/json" -H "x-api-key: {yourKey}" -H "Cache-Control: no-cache" -d '{ "ip": "58.227.74.28" }' "https://api.stakkd.io/v1/lookup/ip"
+  /lookup/mobile:
+    post:
+      parameters:
+      - explode: false
+        in: header
+        name: Content-Type
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: header
+        name: x-api-key
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/phoneLookupRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/lookupResponse'
+          description: 200 response
+        "204":
+          content: {}
+          description: 204 response
+        "400":
+          content: {}
+          description: 400 response
+        "403":
+          content: {}
+          description: 403 response
+        "429":
+          content: {}
+          description: 429 response
+        "500":
+          content: {}
+          description: 500 response
+      security:
+      - apiKey: []
+      tags:
+      - lookup
+      x-codeSamples:
+      - lang: cURL
+        label: cURL
+        source: |
+          curl -X POST -H "Content-Type: application/json" -H "x-api-key: {yourKey}" -H "Cache-Control: no-cache" -d '{ "phone": "301-991-0167" }' "https://api.stakkd.io/v1/lookup/mobile"
+  /lookup/phone:
+    post:
+      parameters:
+      - explode: false
+        in: header
+        name: Content-Type
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: header
+        name: x-api-key
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/phoneLookupRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/lookupResponse'
+          description: 200 response
+        "204":
+          content: {}
+          description: 204 response
+        "400":
+          content: {}
+          description: 400 response
+        "403":
+          content: {}
+          description: 403 response
+        "429":
+          content: {}
+          description: 429 response
+        "500":
+          content: {}
+          description: 500 response
+      security:
+      - apiKey: []
+      tags:
+      - lookup
+      x-codeSamples:
+      - lang: cURL
+        label: cURL
+        source: |
+          curl -X POST -H "Content-Type: application/json" -H "x-api-key: {yourKey}" -H "Cache-Control: no-cache" -d '{ "phone": "2078382232" }' "https://api.thedatagroup.com/v1/lookup/phone"
+  /lookup/skip-tracing:
+    post:
+      parameters:
+      - explode: false
+        in: header
+        name: Content-Type
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: header
+        name: x-api-key
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/skipTracingLookupRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/skipTracingLookupResponse'
+          description: 200 response
+        "204":
+          content: {}
+          description: 204 response
+        "400":
+          content: {}
+          description: 400 response
+        "403":
+          content: {}
+          description: 403 response
+        "429":
+          content: {}
+          description: 429 response
+        "500":
+          content: {}
+          description: 500 response
+      security:
+      - apiKey: []
+      tags:
+      - lookup
+      x-codeSamples:
+      - lang: cURL
+        label: cURL
+        source: |
+          curl -X POST -H "x-api-key: {your key here}" -H "Content-Type: application/json" -d '{ "firstName": "John", "lastName": "Smith", "address1": "425 S. Avalon Park BLVD", "zipcode": "32828" }' " https://api.stakkd.io/v1/lookup/skip-tracing"
+  /standardize/address:
+    post:
+      parameters:
+      - explode: false
+        in: header
+        name: Content-Type
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: header
+        name: x-api-key
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/addressStandardizeRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/addressStandardizeResponse'
+          description: 200 response
+        "204":
+          content: {}
+          description: 204 response
+        "400":
+          content: {}
+          description: 400 response
+        "403":
+          content: {}
+          description: 403 response
+        "429":
+          content: {}
+          description: 429 response
+        "500":
+          content: {}
+          description: 500 response
+      security:
+      - apiKey: []
+      tags:
+      - standardize
+      x-codeSamples:
+      - lang: cURL
+        label: cURL
+        source: |
+          curl -X POST -H "Content-Type: application/json" -H "x-api-key: {yourKey}" -H "Cache-Control: no-cache" -d '{
+          "address1": "425 S. Avalon Park BLVD",
+          "zipcode": "32828"
+          }' "https://api.stakkd.io/v1/standardize/address"
+  /verify/disconnect:
+    post:
+      parameters:
+      - explode: false
+        in: header
+        name: Content-Type
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: header
+        name: x-api-key
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/disconnectVerifyRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/disconnectVerifyResponse'
+          description: 200 response
+        "204":
+          content: {}
+          description: 204 response
+        "400":
+          content: {}
+          description: 400 response
+        "403":
+          content: {}
+          description: 403 response
+        "429":
+          content: {}
+          description: 429 response
+        "500":
+          content: {}
+          description: 500 response
+      security:
+      - apiKey: []
+      tags:
+      - verify
+      x-codeSamples:
+      - lang: cURL
+        label: cURL
+        source: |
+          curl -X POST -H "Content-Type: application/json" -H "x-api-key: {yourKey}" -H "Cache-Control: no-cache" -d '{
+          "phone": "5558675309"
+          }' "https://api.stakkd.io/v1/verify/disconnect"
+  /verify/email:
+    post:
+      parameters:
+      - explode: false
+        in: header
+        name: Content-Type
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: header
+        name: x-api-key
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/emailVerifyRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/emailVerifyResponse'
+          description: 200 response
+        "204":
+          content: {}
+          description: 204 response
+        "400":
+          content: {}
+          description: 400 response
+        "403":
+          content: {}
+          description: 403 response
+        "429":
+          content: {}
+          description: 429 response
+        "500":
+          content: {}
+          description: 500 response
+      security:
+      - apiKey: []
+      tags:
+      - verify
+      x-codeSamples:
+      - lang: cURL
+        label: cURL
+        source: |
+          curl -X POST -H "Content-Type: application/json" -H "x-api-key: {yourKey}" -H "Cache-Control: no-cache" -d '{ "email": "richard.young@fakeemail.com" }' "https://api.stakkd.io/v1/verify/email"
+  /verify/phone:
+    post:
+      parameters:
+      - explode: false
+        in: header
+        name: Content-Type
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: header
+        name: x-api-key
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/phoneVerifyRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/phoneVerifyResponse'
+          description: 200 response
+        "204":
+          content: {}
+          description: 204 response
+        "400":
+          content: {}
+          description: 400 response
+        "403":
+          content: {}
+          description: 403 response
+        "429":
+          content: {}
+          description: 429 response
+        "500":
+          content: {}
+          description: 500 response
+      security:
+      - apiKey: []
+      tags:
+      - verify
+      x-codeSamples:
+      - lang: cURL
+        label: cURL
+        source: |
+          curl -X POST -H "x-api-key: {your key here}" -H "Content-Type: application/json" -d '{ “phone”: “5555550123”, “firstName”: “John”, "lastName”: “Smith”, “address1”: “425 S. Avalon Park BLVD”, “zipcode”: “32828” }' " https://api.stakkd.io/v1/verify/phone"
+  /verify/tcpa:
+    post:
+      parameters:
+      - explode: false
+        in: header
+        name: Content-Type
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: header
+        name: x-api-key
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/tcpaVerifyRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/tcpaVerifyResponse'
+          description: 200 response
+        "204":
+          content: {}
+          description: 204 response
+        "400":
+          content: {}
+          description: 400 response
+        "403":
+          content: {}
+          description: 403 response
+        "429":
+          content: {}
+          description: 429 response
+        "500":
+          content: {}
+          description: 500 response
+      security:
+      - apiKey: []
+      tags:
+      - verify
+      x-codeSamples:
+      - lang: cURL
+        label: cURL
+        source: |
+          curl -X POST -H "Content-Type: application/json" -H "x-api-key: {yourKey}" -H "Cache-Control: no-cache" -d '{ "firstName": "Richard", "lastName": "Young", "address1": "4689 Lakewood Drive", "zipcode": "32003", "phone": "4765559876" }' "https://api.stakkd.io/v1/verify/phone"
+components:
+  schemas:
+    phoneAppendRequest:
+      properties:
+        zipcode:
+          description: The zipcode to use in the request. You must provider either
+            the zipcode, or both the city and state.
+          type: string
+        city:
+          description: The city to use in the request. You must provider either both
+            the city and state, or the zipcode.
+          type: string
+        phone:
+          description: The phone to use in the request.
+          type: string
+        address1:
+          description: The address to use in the request.
+          type: string
+        address2:
+          description: The second address line to use in the request, when needed.
+          type: string
+        lastName:
+          description: The last name to use in the request.
+          type: string
+        state:
+          description: The state to use in the request, abbreviated. You must provider
+            either both the city and state, or the zipcode.
+          type: string
+        firstName:
+          description: The first name to use in the request.
+          type: string
+      required:
+      - address1
+      - firstName
+      - lastName
+      type: object
+    ipLookupResponse:
+      example:
+        lastName: lastName
+        firstName: firstName
+        address:
+          zipcode: zipcode
+          postDirection: postDirection
+          unitType: unitType
+          streetType: streetType
+          streetName: streetName
+          city: city
+          streetNumber: streetNumber
+          preDirection: preDirection
+          unitNumber: unitNumber
+          state: state
+      properties:
+        address:
+          $ref: '#/components/schemas/ipLookupResponse_address'
+        lastName:
+          description: The last name for the person.
+          type: string
+        firstName:
+          description: The first name for the person.
+          type: string
+      type: object
+    demographicsAppendResponse:
+      example:
+        address:
+          zipcode: zipcode
+          postDirection: postDirection
+          unitType: unitType
+          streetType: streetType
+          streetName: streetName
+          city: city
+          streetNumber: streetNumber
+          preDirection: preDirection
+          unitNumber: unitNumber
+          state: state
+        lifeStyles:
+          book:
+            reader: true
+            buyer: true
+          valueShopper: true
+          apparel:
+            men: PURCHASED
+            women: PURCHASED
+            child: true
+          interests:
+            motorcycling: true
+            sports: GENERALINTEREST
+            homeImprovement: GENERALINTEREST
+            gambling: true
+            collectibles: GENERALINTEREST
+            technology: true
+            homeAndGarden: SEWINGANDKNITTING
+            selfImprovement: HEALTHANDMEDICAL
+            outdoors: GENERALINTEREST
+            fitness: HEALTHEXERCISE
+            autoParts: true
+            cooking: GOURMETFOODANDWINE
+            investing: true
+            boating: true
+            travel: TRAVEL
+            arts: ARTSINTEREST
+          pet: HASPETS
+        phones:
+        - phone: 0
+        - phone: 0
+        categoryMatch: ADDRESS
+        demographics:
+          level: ZIP9
+          person:
+            workerType:
+              percentWhiteCollar: 7
+              percentBlueCollar: 9
+              percentOther: 3
+            education:
+              level: HIGHSCHOOL
+              medianYearsSchooling: 6
+            gender: M
+            ethnicity: ASIAN
+            race:
+              percentAsian: 2
+              percentBlack: 5
+              percentHispanic: 1
+              percentWhite: 5
+            isSenior: true
+            dateOfBirth: dateOfBirth
+            language:
+              percentSpanishSpeaker: 4
+              percentAsianSpeaker: 7
+              percentEnglishSpeaker: 1
+            percentMailOrderRespondent: 2
+            finances:
+              estimatedNetWorth: A
+              isCharityDonar: true
+              usesCreditCard: true
+              estimatedIncome: A
+            age: 1
+          residence:
+            homeowner: TENANT
+            isMobileHome: true
+            medianHouseValue: A
+            hasFireplace: true
+            yearHomeBuilt: 6
+            dwelling:
+              percentSingleFamily: 7
+              percentMultipleFamily: 1
+              type: SINGLEFAMILY
+            estimatedMarketValue: A
+            hasPool: true
+            lengthOfResidence: 1
+          family:
+            children:
+              childrenAge: A
+              hasChildren: true
+              numberChildren: A
+            isSingleParent: true
+            married: INFERREDMARRIED
+          vehicle:
+            ownsSuvVehicle: true
+            ownsPickupVehicle: true
+            percentVehicleOwner: 4
+            ownsLuxuryVehicle: true
+      properties:
+        address:
+          $ref: '#/components/schemas/ipLookupResponse_address'
+        phones:
+          description: An array of related phone numbers.
+          items:
+            $ref: '#/components/schemas/demographicsAppendResponse_phones'
+          type: array
+        categoryMatch:
+          description: The type of match the data represents.
+          enum:
+          - ADDRESS
+          - HOUSEHOLD
+          - INDIVIDUAL
+          - NAMEANDZIP
+          - NONE
+          type: string
+        lifeStyles:
+          $ref: '#/components/schemas/demographicsAppendResponse_lifeStyles'
+        demographics:
+          $ref: '#/components/schemas/demographicsAppendResponse_demographics'
+      type: object
+    demographicsAppendRequest:
+      properties:
+        zipcode:
+          description: The zipcode to use in the request. You must provider either
+            the zipcode, or both the city and state.
+          type: string
+        city:
+          description: The city to use in the request. You must provider either both
+            the city and state, or the zipcode.
+          type: string
+        address1:
+          description: The address to use in the request.
+          type: string
+        lastName:
+          description: The last name to use in the request.
+          type: string
+        state:
+          description: The state to use in the request, abbreviated. You must provider
+            either both the city and state, or the zipcode.
+          type: string
+        firstName:
+          description: The first name to use in the request.
+          type: string
+      required:
+      - address1
+      - firstName
+      - lastName
+      type: object
+    lookupResponse:
+      example:
+        firstName: firstName
+        lastName: lastName
+        address:
+          zipcode: zipcode
+          postDirection: postDirection
+          unitType: unitType
+          streetType: streetType
+          streetName: streetName
+          city: city
+          streetNumber: streetNumber
+          preDirection: preDirection
+          unitNumber: unitNumber
+          state: state
+      properties:
+        firstName:
+          type: string
+        lastName:
+          type: string
+        address:
+          $ref: '#/components/schemas/lookupResponse_address'
+      type: object
+    phoneLookupRequest:
+      properties:
+        phone:
+          description: The phone to use in the request.
+          type: string
+      required:
+      - phone
+      type: object
+    tcpaVerifyResponse:
+      example:
+        phoneType: L
+        verificationCode: V
+      properties:
+        phoneType:
+          description: 'The phone type, where: L = ''Landline'', V = ''VoIP'', W =
+            ''Wireless'', and O = ''Other''.'
+          enum:
+          - L
+          - V
+          - W
+          - O
+          type: string
+        verificationCode:
+          description: 'The phone''s verification code, where: V = ''VoIP'', L = ''Landline'',
+            Y = ''Record Verified'', YP = ''Record Verified, with partial name match'',
+            YX = ''Record Verified, with non-authoritative match'', N = ''Phone matched
+            a different person'', U = ''Unconfirmed''.'
+          enum:
+          - V
+          - L
+          - "Y"
+          - YP
+          - YX
+          - "N"
+          - U
+          type: string
+      type: object
+    phoneVerifyResponse:
+      example:
+        lastName: lastName
+        firstName: firstName
+        address:
+          zipcode: zipcode
+          postDirection: postDirection
+          unitType: unitType
+          streetType: streetType
+          streetName: streetName
+          city: city
+          streetNumber: streetNumber
+          preDirection: preDirection
+          unitNumber: unitNumber
+          state: state
+        phone:
+          phoneType: L
+          phone: phone
+      properties:
+        address:
+          $ref: '#/components/schemas/ipLookupResponse_address'
+        phone:
+          $ref: '#/components/schemas/phoneVerifyResponse_phone'
+        lastName:
+          description: The last name for the person.
+          type: string
+        firstName:
+          description: The first name for the person.
+          type: string
+      type: object
+    addressStandardizeResponse:
+      example:
+        zipcode: zipcode
+        postDirection: postDirection
+        unitType: unitType
+        streetType: streetType
+        streetName: streetName
+        city: city
+        streetNumber: streetNumber
+        preDirection: preDirection
+        unitNumber: unitNumber
+        state: state
+      properties:
+        zipcode:
+          description: The address zipcode.
+          type: string
+        unitNumber:
+          description: The address unit number.
+          type: string
+        city:
+          description: The address city.
+          type: string
+        postDirection:
+          description: 'The address street postfix direction, usually: N, S, E, or
+            W.'
+          type: string
+        streetNumber:
+          description: The address number.
+          type: string
+        preDirection:
+          description: 'The address street prefix direction, usually: N, S, E, or
+            W.'
+          type: string
+        streetType:
+          description: The address street type.
+          type: string
+        state:
+          description: The address state, abbreviated.
+          type: string
+        unitType:
+          description: 'The address unit type, for example: Apt, Suite, ect.'
+          type: string
+        streetName:
+          description: The address street name.
+          type: string
+      type: object
+    skipTracingLookupResponse:
+      example:
+        addresses:
+          previousAddresses:
+          - zipcode: zipcode
+            postDirection: postDirection
+            unitType: unitType
+            streetType: streetType
+            streetName: streetName
+            city: city
+            streetNumber: streetNumber
+            preDirection: preDirection
+            unitNumber: unitNumber
+            state: state
+          - zipcode: zipcode
+            postDirection: postDirection
+            unitType: unitType
+            streetType: streetType
+            streetName: streetName
+            city: city
+            streetNumber: streetNumber
+            preDirection: preDirection
+            unitNumber: unitNumber
+            state: state
+          primaryAddress:
+            zipcode: zipcode
+            postDirection: postDirection
+            unitType: unitType
+            streetType: streetType
+            streetName: streetName
+            city: city
+            streetNumber: streetNumber
+            preDirection: preDirection
+            unitNumber: unitNumber
+            state: state
+        names:
+          aliases:
+          - lastName: lastName
+            firstName: firstName
+            middleName: middleName
+          - lastName: lastName
+            firstName: firstName
+            middleName: middleName
+          primaryName:
+            lastName: lastName
+            firstName: firstName
+            middleName: middleName
+        demographics:
+          dateOfDeath: 0
+          dateOfBirth: 6
+      properties:
+        addresses:
+          $ref: '#/components/schemas/skipTracingLookupResponse_addresses'
+        names:
+          $ref: '#/components/schemas/skipTracingLookupResponse_names'
+        demographics:
+          $ref: '#/components/schemas/skipTracingLookupResponse_demographics'
+      type: object
+    disconnectVerifyRequest:
+      properties:
+        phone:
+          description: The phone to use in the request.
+          type: string
+      required:
+      - phone
+      type: object
+    emailVerifyRequest:
+      properties:
+        email:
+          description: The email to use in the request.
+          type: string
+      required:
+      - email
+      type: object
+    tcpaVerifyRequest:
+      properties:
+        zipcode:
+          description: The zipcode to use in the request. You must provider either
+            the zipcode, or both the city and state.
+          type: string
+        phone:
+          description: The phone to use in the request.
+          type: string
+        city:
+          description: The city to use in the request. You must provider either both
+            the city and state, or the zipcode.
+          type: string
+        address1:
+          description: The address to use in the request.
+          type: string
+        address2:
+          description: The second address line to use in the request, when needed.
+          type: string
+        lastName:
+          description: The last name to use in the request.
+          type: string
+        state:
+          description: The state to use in the request, abbreviated. You must provider
+            either both the city and state, or the zipcode.
+          type: string
+        firstName:
+          description: The first name to use in the request.
+          type: string
+      required:
+      - address1
+      - firstName
+      - lastName
+      - phone
+      type: object
+    vehicleAppendResponse:
+      example:
+        lastName: lastName
+        firstName: firstName
+        address:
+          zipcode: zipcode
+          postDirection: postDirection
+          unitType: unitType
+          streetType: streetType
+          streetName: streetName
+          city: city
+          streetNumber: streetNumber
+          preDirection: preDirection
+          unitNumber: unitNumber
+          state: state
+        vehicles:
+        - year: year
+          model: model
+          make: make
+        - year: year
+          model: model
+          make: make
+      properties:
+        address:
+          $ref: '#/components/schemas/ipLookupResponse_address'
+        lastName:
+          description: The last name for the person.
+          type: string
+        vehicles:
+          items:
+            $ref: '#/components/schemas/vehicleAppendResponse_vehicles'
+          type: array
+        firstName:
+          description: The first name for the person.
+          type: string
+      type: object
+    skipTracingLookupRequest:
+      properties:
+        zipcode:
+          description: The zipcode to use in the request. You must provider either
+            the zipcode, or both the city and state.
+          type: string
+        city:
+          description: The city to use in the request. You must provider either both
+            the city and state, or the zipcode.
+          type: string
+        address1:
+          description: The address to use in the request.
+          type: string
+        lastName:
+          description: The last name to use in the request.
+          type: string
+        state:
+          description: The state to use in the request, abbreviated. You must provider
+            either both the city and state, or the zipcode.
+          type: string
+        firstName:
+          description: The first name to use in the request.
+          type: string
+      required:
+      - address1
+      - firstName
+      - lastName
+      type: object
+    mobileAppendResponse:
+      example:
+        lastName: lastName
+        firstName: firstName
+        address:
+          zipcode: zipcode
+          postDirection: postDirection
+          unitType: unitType
+          streetType: streetType
+          streetName: streetName
+          city: city
+          streetNumber: streetNumber
+          preDirection: preDirection
+          unitNumber: unitNumber
+          state: state
+        phone:
+          phoneType: L
+          phone: phone
+      properties:
+        address:
+          $ref: '#/components/schemas/ipLookupResponse_address'
+        phone:
+          $ref: '#/components/schemas/phoneVerifyResponse_phone'
+        lastName:
+          description: The last name for the person.
+          type: string
+        firstName:
+          description: The first name for the person.
+          type: string
+      type: object
+    emailLookupRequest:
+      properties:
+        phone:
+          description: The phone to use in the request.
+          type: string
+      required:
+      - phone
+      type: object
+    vehicleAppendRequest:
+      properties:
+        zipcode:
+          description: The zipcode to use in the request. You must provider either
+            the zipcode, or both the city and state.
+          type: string
+        city:
+          description: The city to use in the request. You must provider either both
+            the city and state, or the zipcode.
+          type: string
+        address1:
+          description: The address to use in the request.
+          type: string
+        address2:
+          description: The second address line to use in the request, when needed.
+          type: string
+        lastName:
+          description: The last name to use in the request.
+          type: string
+        state:
+          description: The state to use in the request, abbreviated. You must provider
+            either both the city and state, or the zipcode.
+          type: string
+        firstName:
+          description: The first name to use in the request.
+          type: string
+      required:
+      - address1
+      - firstName
+      - lastName
+      type: object
+    phoneAppendResponse:
+      example:
+        lastName: lastName
+        firstName: firstName
+        address:
+          zipcode: zipcode
+          postDirection: postDirection
+          unitType: unitType
+          streetType: streetType
+          streetName: streetName
+          city: city
+          streetNumber: streetNumber
+          preDirection: preDirection
+          unitNumber: unitNumber
+          state: state
+        phone:
+          phoneType: L
+          phone: phone
+      properties:
+        address:
+          $ref: '#/components/schemas/ipLookupResponse_address'
+        phone:
+          $ref: '#/components/schemas/phoneVerifyResponse_phone'
+        lastName:
+          description: The last name for the person.
+          type: string
+        firstName:
+          description: The first name for the person.
+          type: string
+      type: object
+    phoneVerifyRequest:
+      properties:
+        zipcode:
+          description: The zipcode to use in the request. You must provider either
+            the zipcode, or both the city and state.
+          type: string
+        city:
+          description: The city to use in the request. You must provider either both
+            the city and state, or the zipcode.
+          type: string
+        phone:
+          description: The phone to use in the request.
+          type: string
+        address1:
+          description: The address to use in the request.
+          type: string
+        address2:
+          description: The second address line to use in the request, when needed.
+          type: string
+        lastName:
+          description: The last name to use in the request.
+          type: string
+        state:
+          description: The state to use in the request, abbreviated. You must provider
+            either both the city and state, or the zipcode.
+          type: string
+        firstName:
+          description: The first name to use in the request.
+          type: string
+      required:
+      - address1
+      - firstName
+      - lastName
+      - phone
+      type: object
+    ipLookupRequest:
+      properties:
+        ip:
+          description: The IP Address to use in the request.
+          type: string
+      required:
+      - ip
+      type: object
+    mobileAppendRequest:
+      properties:
+        zipcode:
+          description: The zipcode to use in the request. You must provider either
+            the zipcode, or both the city and state.
+          type: string
+        city:
+          description: The city to use in the request. You must provider either both
+            the city and state, or the zipcode.
+          type: string
+        phone:
+          description: The phone to use in the request.
+          type: string
+        address1:
+          description: The address to use in the request.
+          type: string
+        address2:
+          description: The second address line to use in the request, when needed.
+          type: string
+        lastName:
+          description: The last name to use in the request.
+          type: string
+        state:
+          description: The state to use in the request, abbreviated. You must provider
+            either both the city and state, or the zipcode.
+          type: string
+        firstName:
+          description: The first name to use in the request.
+          type: string
+      required:
+      - address1
+      - firstName
+      - lastName
+      type: object
+    emailVerifyResponse:
+      example:
+        email: email
+        status: UNKNOWN
+      properties:
+        email:
+          description: The email.
+          type: string
+        status:
+          description: The email address status.
+          enum:
+          - UNKNOWN
+          - VERIFIED
+          - UNDELIVERABLE
+          - CATCHALL
+          - DISTRIBUTIONGROUP
+          - SPAMTRAP
+          - COMPLAINER
+          - BOT
+          - SUPPRESSED
+          - SEEDACCOUNT
+          type: string
+      type: object
+    disconnectVerifyResponse:
+      example:
+        connected: true
+        lastName: lastName
+        firstName: firstName
+        address:
+          zipcode: zipcode
+          postDirection: postDirection
+          unitType: unitType
+          streetType: streetType
+          streetName: streetName
+          city: city
+          streetNumber: streetNumber
+          preDirection: preDirection
+          unitNumber: unitNumber
+          state: state
+        phone:
+          phoneType: L
+          confidenceScore: 0
+          phone: phone
+          provider: provider
+          recordType: PAYPHONE
+          lastDateReceived: lastDateReceived
+          directInwardDialNumber: true
+          initialDateReceived: initialDateReceived
+          operatingCompanyNumber: operatingCompanyNumber
+          directoryAssistance: PRIVATE
+        middleName: middleName
+      properties:
+        connected:
+          description: Indicates whether or not the phone is flagged as connected.
+          type: boolean
+        address:
+          $ref: '#/components/schemas/ipLookupResponse_address'
+        phone:
+          $ref: '#/components/schemas/disconnectVerifyResponse_phone'
+        lastName:
+          description: The last name for the person.
+          type: string
+        middleName:
+          description: The middle name for the person.
+          type: string
+        firstName:
+          description: The first name for the person.
+          type: string
+      type: object
+    emailAppendRequest:
+      properties:
+        zipcode:
+          description: The zipcode to use in the request. You must provider either
+            the zipcode, or both the city and state.
+          type: string
+        city:
+          description: The city to use in the request. You must provider either both
+            the city and state, or the zipcode.
+          type: string
+        address1:
+          description: The address to use in the request.
+          type: string
+        address2:
+          description: The second address line to use in the request, when needed.
+          type: string
+        lastName:
+          description: The last name to use in the request.
+          type: string
+        state:
+          description: The state to use in the request, abbreviated. You must provider
+            either both the city and state, or the zipcode.
+          type: string
+        firstName:
+          description: The first name to use in the request.
+          type: string
+      required:
+      - address1
+      - firstName
+      - lastName
+      type: object
+    addressStandardizeRequest:
+      properties:
+        zipcode:
+          description: The zipcode to use in the request. You must provider either
+            the zipcode, or both the city and state.
+          type: string
+        city:
+          description: The city to use in the request. You must provider either both
+            the city and state, or the zipcode.
+          type: string
+        address1:
+          description: The address to use in the request.
+          type: string
+        address2:
+          description: The second address line to use in the request, when needed.
+          type: string
+        state:
+          description: The state to use in the request, abbreviated. You must provider
+            either both the city and state, or the zipcode.
+          type: string
+      required:
+      - address1
+      type: object
+    emailAppendResponse:
+      example:
+        lastName: lastName
+        firstName: firstName
+        address:
+          zipcode: zipcode
+          postDirection: postDirection
+          unitType: unitType
+          streetType: streetType
+          streetName: streetName
+          city: city
+          streetNumber: streetNumber
+          preDirection: preDirection
+          unitNumber: unitNumber
+          state: state
+        email: email
+      properties:
+        address:
+          $ref: '#/components/schemas/ipLookupResponse_address'
+        lastName:
+          description: The last name for the person.
+          type: string
+        firstName:
+          description: The first name for the person.
+          type: string
+        email:
+          description: The email.
+          type: string
+      type: object
+    ipLookupResponse_address:
+      example:
+        zipcode: zipcode
+        postDirection: postDirection
+        unitType: unitType
+        streetType: streetType
+        streetName: streetName
+        city: city
+        streetNumber: streetNumber
+        preDirection: preDirection
+        unitNumber: unitNumber
+        state: state
+      properties:
+        zipcode:
+          description: The address zipcode.
+          type: string
+        unitNumber:
+          description: The address unit number.
+          type: string
+        city:
+          description: The address city.
+          type: string
+        postDirection:
+          description: 'The address street postfix direction, usually: N, S, E, or
+            W.'
+          type: string
+        streetNumber:
+          description: The address number.
+          type: string
+        preDirection:
+          description: 'The address street prefix direction, usually: N, S, E, or
+            W.'
+          type: string
+        streetType:
+          description: The address street type.
+          type: string
+        state:
+          description: The address state, abbreviated.
+          type: string
+        unitType:
+          description: 'The address unit type, for example: Apt, Suite, ect.'
+          type: string
+        streetName:
+          description: The address street name.
+          type: string
+      type: object
+    demographicsAppendResponse_phones:
+      example:
+        phone: 0
+      properties:
+        phone:
+          description: The phone number.
+          type: integer
+      type: object
+    demographicsAppendResponse_lifeStyles_book:
+      example:
+        reader: true
+        buyer: true
+      properties:
+        reader:
+          description: Indicates whether the person is flagged as a book reader.
+          type: boolean
+        buyer:
+          description: Indicates whether the person is flagged as a book buyer.
+          type: boolean
+      type: object
+    demographicsAppendResponse_lifeStyles_apparel:
+      example:
+        men: PURCHASED
+        women: PURCHASED
+        child: true
+      properties:
+        men:
+          description: The type of men's apparel the person has bought.
+          enum:
+          - PURCHASED
+          - PURCHASEDBIGANDTALL
+          type: string
+        women:
+          description: The type of women's apparel the person has bought.
+          enum:
+          - PURCHASED
+          - PURCHASEDPLUSSIZE
+          type: string
+        child:
+          description: Indicates whether the person is flagged as having bought children's
+            apparel.
+          type: boolean
+      type: object
+    demographicsAppendResponse_lifeStyles_interests:
+      example:
+        motorcycling: true
+        sports: GENERALINTEREST
+        homeImprovement: GENERALINTEREST
+        gambling: true
+        collectibles: GENERALINTEREST
+        technology: true
+        homeAndGarden: SEWINGANDKNITTING
+        selfImprovement: HEALTHANDMEDICAL
+        outdoors: GENERALINTEREST
+        fitness: HEALTHEXERCISE
+        autoParts: true
+        cooking: GOURMETFOODANDWINE
+        investing: true
+        boating: true
+        travel: TRAVEL
+        arts: ARTSINTEREST
+      properties:
+        homeAndGarden:
+          description: The type of home and garden activities the person has an interest
+            in.
+          enum:
+          - SEWINGANDKNITTING
+          - WOODWORKING
+          - PHOTOGRAPHY
+          - HOMEANDGARDEN
+          type: string
+        motorcycling:
+          description: Indicates whether the person is flagged as a having an interest
+            in motorcycling.
+          type: boolean
+        sports:
+          description: The type of sports the person has an interest in.
+          enum:
+          - GENERALINTEREST
+          - FOOTBALL
+          - BASEBALL
+          - GOLF
+          - TENNIS
+          - RACING
+          type: string
+        selfImprovement:
+          description: The type of self improvement activities the person has an interest
+            in.
+          enum:
+          - HEALTHANDMEDICAL
+          - DIETINGWEIGHTLOSS
+          - SELFIMPROVEMENT
+          type: string
+        gambling:
+          description: Indicates whether the person is flagged as a having an interest
+            in gambling.
+          type: boolean
+        collectibles:
+          description: The type of collectibles the person has an interest in.
+          enum:
+          - GENERALINTEREST
+          - ANTIQUESINTEREST
+          - SPORTSINTEREST
+          type: string
+        technology:
+          description: Indicates whether the person is flagged as a having an interest
+            in technology.
+          type: boolean
+        outdoors:
+          description: The type of outdoors activities the person has an interest
+            in.
+          enum:
+          - GENERALINTEREST
+          - SNOWSPORTS
+          - WATERSPORTS
+          - HUNTINGANDFISHING
+          type: string
+        fitness:
+          description: The type of fitness activities the person has an interest in.
+          enum:
+          - HEALTHEXERCISE
+          - RUNNING
+          - WALKING
+          - AEROBICS
+          type: string
+        homeImprovement:
+          description: The type of home improvement activities the person has an interest
+            in.
+          enum:
+          - GENERALINTEREST
+          - DIYINTEREST
+          type: string
+        cooking:
+          description: The type of food and cooking the person has an interest in.
+          enum:
+          - GOURMETFOODANDWINE
+          - COOKING
+          - NATURALFOODS
+          type: string
+        autoParts:
+          description: Indicates whether the person is flagged as a having an interest
+            in automobile parts.
+          type: boolean
+        investing:
+          description: Indicates whether the person is flagged as a having an interest
+            in investing.
+          type: boolean
+        boating:
+          description: Indicates whether the person is flagged as a having an interest
+            in boating.
+          type: boolean
+        travel:
+          description: The type of traveling the person has an interest in.
+          enum:
+          - TRAVEL
+          - DOMESTIC
+          - INTERNATIONAL
+          - CRUISE
+          type: string
+        arts:
+          description: The type of arts the person has an interest in.
+          enum:
+          - ARTSINTEREST
+          - AVIDMUSICLISTENER
+          - ANTIQUESINTEREST
+          - PERFORMINGARTSINTEREST
+          type: string
+      type: object
+    demographicsAppendResponse_lifeStyles:
+      example:
+        book:
+          reader: true
+          buyer: true
+        valueShopper: true
+        apparel:
+          men: PURCHASED
+          women: PURCHASED
+          child: true
+        interests:
+          motorcycling: true
+          sports: GENERALINTEREST
+          homeImprovement: GENERALINTEREST
+          gambling: true
+          collectibles: GENERALINTEREST
+          technology: true
+          homeAndGarden: SEWINGANDKNITTING
+          selfImprovement: HEALTHANDMEDICAL
+          outdoors: GENERALINTEREST
+          fitness: HEALTHEXERCISE
+          autoParts: true
+          cooking: GOURMETFOODANDWINE
+          investing: true
+          boating: true
+          travel: TRAVEL
+          arts: ARTSINTEREST
+        pet: HASPETS
+      properties:
+        book:
+          $ref: '#/components/schemas/demographicsAppendResponse_lifeStyles_book'
+        apparel:
+          $ref: '#/components/schemas/demographicsAppendResponse_lifeStyles_apparel'
+        valueShopper:
+          description: Indicates whether the person is flagged as a value shopper.
+          type: boolean
+        interests:
+          $ref: '#/components/schemas/demographicsAppendResponse_lifeStyles_interests'
+        pet:
+          description: The type of pet the person owns.
+          enum:
+          - HASPETS
+          - EQUESTRIAN
+          - CAT
+          - DOG
+          type: string
+      type: object
+    demographicsAppendResponse_demographics_person_education:
+      example:
+        level: HIGHSCHOOL
+        medianYearsSchooling: 6
+      properties:
+        level:
+          description: The highest achieved education level for the person.
+          enum:
+          - HIGHSCHOOL
+          - COLLEGE
+          - GRADUATESCHOOL
+          - VOCATIONALORTECHNICAL
+          type: string
+        medianYearsSchooling:
+          description: The median years of schooling for the person.
+          type: integer
+      type: object
+    demographicsAppendResponse_demographics_person_race:
+      example:
+        percentAsian: 2
+        percentBlack: 5
+        percentHispanic: 1
+        percentWhite: 5
+      properties:
+        percentHispanic:
+          description: The Penetration Percentage for indicating whether the person
+            is a hispanic, +/- 3%.
+          type: integer
+        percentBlack:
+          description: The Penetration Percentage for indicating whether the person
+            is a black, +/- 3%.
+          type: integer
+        percentWhite:
+          description: The Penetration Percentage for indicating whether the person
+            is white, +/- 3%.
+          type: integer
+        percentAsian:
+          description: The Penetration Percentage for indicating whether the person
+            is a asian, +/- 3%.
+          type: integer
+      type: object
+    demographicsAppendResponse_demographics_person_workerType:
+      example:
+        percentWhiteCollar: 7
+        percentBlueCollar: 9
+        percentOther: 3
+      properties:
+        percentWhiteCollar:
+          description: The Penetration Percentage for indicating whether the person
+            is a white collar worker, +/- 3%.
+          type: integer
+        percentBlueCollar:
+          description: The Penetration Percentage for indicating whether the person
+            is a blue collar worker, +/- 3%.
+          type: integer
+        percentOther:
+          description: The Penetration Percentage for indicating whether the person
+            is some other type of worker, +/- 3%.
+          type: integer
+      type: object
+    demographicsAppendResponse_demographics_person_language:
+      example:
+        percentSpanishSpeaker: 4
+        percentAsianSpeaker: 7
+        percentEnglishSpeaker: 1
+      properties:
+        percentSpanishSpeaker:
+          description: The Penetration Percentage for indicating whether the person
+            is a spanish speaker, +/- 3%.
+          type: integer
+        percentAsianSpeaker:
+          description: The Penetration Percentage for indicating whether the person
+            is an asian speaker, +/- 3%.
+          type: integer
+        percentEnglishSpeaker:
+          description: The Penetration Percentage for indicating whether the person
+            is an english speaker, +/- 3%.
+          type: integer
+      type: object
+    demographicsAppendResponse_demographics_person_finances:
+      example:
+        estimatedNetWorth: A
+        isCharityDonar: true
+        usesCreditCard: true
+        estimatedIncome: A
+      properties:
+        estimatedIncome:
+          description: 'The estimated income of the person, where: A = < $20, 000;
+            B = $20, 000 - $29, 999; C = $30, 000 - $39, 999; D = $40, 000 - $49,
+            999; E = $50, 000 - $74, 999; F = $75, 000 - $99, 999; G = $100, 000 -
+            $124, 999; H = $125, 000 - $149, 999; I = > $149,999.'
+          enum:
+          - A
+          - B
+          - C
+          - D
+          - E
+          - F
+          - G
+          - H
+          - I
+          type: string
+        estimatedNetWorth:
+          description: 'The estimated net worth of the person, where: A = < $5k; B
+            = $5k - $19k; C = $20k - $49k; D = $50k - $80k; E = $81k - $99k; F = $100k
+            - $249k; G = $250k - $499k; H = > $500k.'
+          enum:
+          - A
+          - B
+          - C
+          - D
+          - E
+          - F
+          - G
+          - H
+          type: string
+        isCharityDonar:
+          description: Indicates whether the person is flagged as a charity donar.
+          type: boolean
+        usesCreditCard:
+          description: Indicates whether the person is flagged as a credit card user.
+          type: boolean
+      type: object
+    demographicsAppendResponse_demographics_person:
+      example:
+        workerType:
+          percentWhiteCollar: 7
+          percentBlueCollar: 9
+          percentOther: 3
+        education:
+          level: HIGHSCHOOL
+          medianYearsSchooling: 6
+        gender: M
+        ethnicity: ASIAN
+        race:
+          percentAsian: 2
+          percentBlack: 5
+          percentHispanic: 1
+          percentWhite: 5
+        isSenior: true
+        dateOfBirth: dateOfBirth
+        language:
+          percentSpanishSpeaker: 4
+          percentAsianSpeaker: 7
+          percentEnglishSpeaker: 1
+        percentMailOrderRespondent: 2
+        finances:
+          estimatedNetWorth: A
+          isCharityDonar: true
+          usesCreditCard: true
+          estimatedIncome: A
+        age: 1
+      properties:
+        education:
+          $ref: '#/components/schemas/demographicsAppendResponse_demographics_person_education'
+        gender:
+          description: 'The gender of the person, where: M = Male; F = Female; U =
+            Unknown.'
+          enum:
+          - M
+          - F
+          - U
+          type: string
+        ethnicity:
+          description: The ethnicity of the person.
+          enum:
+          - ASIAN
+          - AFRICANAMERICAN
+          - HISPANIC
+          type: string
+        race:
+          $ref: '#/components/schemas/demographicsAppendResponse_demographics_person_race'
+        dateOfBirth:
+          description: 'The date of birth as the person, formatted: yyyyMM'
+          type: string
+        workerType:
+          $ref: '#/components/schemas/demographicsAppendResponse_demographics_person_workerType'
+        percentMailOrderRespondent:
+          description: The Penetration Percentage for indicating whether the person
+            is a mail order respondent, +/- 3%.
+          type: integer
+        language:
+          $ref: '#/components/schemas/demographicsAppendResponse_demographics_person_language'
+        finances:
+          $ref: '#/components/schemas/demographicsAppendResponse_demographics_person_finances'
+        isSenior:
+          description: Indicates whether the person is flagged as a senior.
+          type: boolean
+        age:
+          description: The age of the person.
+          type: integer
+      type: object
+    demographicsAppendResponse_demographics_residence_dwelling:
+      example:
+        percentSingleFamily: 7
+        percentMultipleFamily: 1
+        type: SINGLEFAMILY
+      properties:
+        percentSingleFamily:
+          description: The Penetration Percentage for indicating whether the residence
+            is a single family dwelling, +/- 3%.
+          type: integer
+        type:
+          description: The type of dwelling for the residence.
+          enum:
+          - SINGLEFAMILY
+          - MULTIPLEFAMILY
+          type: string
+        percentMultipleFamily:
+          description: The Penetration Percentage for indicating whether the residence
+            is a multiple family dwelling, +/- 3%.
+          type: integer
+      type: object
+    demographicsAppendResponse_demographics_residence:
+      example:
+        homeowner: TENANT
+        isMobileHome: true
+        medianHouseValue: A
+        hasFireplace: true
+        yearHomeBuilt: 6
+        dwelling:
+          percentSingleFamily: 7
+          percentMultipleFamily: 1
+          type: SINGLEFAMILY
+        estimatedMarketValue: A
+        hasPool: true
+        lengthOfResidence: 1
+      properties:
+        homeowner:
+          description: Indicates whether the person is the owner or a tenant of the
+            residence.
+          enum:
+          - TENANT
+          - OWNER
+          type: string
+        hasPool:
+          description: Indicates whether the residence is flagged as having a pool.
+          type: boolean
+        estimatedMarketValue:
+          description: The estimated market value of the residence, where A = $1,
+            000 - $24, 999; B = $25, 000 - $49, 999; C = $50, 000 - $74, 999; D =
+            $75, 000 - $99, 999; E = $100, 000 - $124, 999; F = $125, 000 - $149,
+            999; G = $150, 000 - $174, 999; H = $175, 000 - $199, 999; I = $200, 000
+            - $224, 999; J = $225, 000 - $249, 999; K = $250, 000 - $274, 999; L =
+            $275, 000 - $299, 999; M = $300, 000 - $349, 999; N = $350, 000 - $399,
+            999; O = $400, 000 - $449, 999; P = $450, 000 - $499, 999; Q = $500, 000
+            - $749, 999; R = $750, 000 - $999, 999; S = > $999,999.
+          enum:
+          - A
+          - B
+          - C
+          - D
+          - E
+          - F
+          - G
+          - H
+          - I
+          - J
+          - K
+          - L
+          - M
+          - "N"
+          - O
+          - P
+          - Q
+          - R
+          - S
+          type: string
+        lengthOfResidence:
+          description: The number of years the person has lived at the residence.
+          type: integer
+        yearHomeBuilt:
+          description: The year the residence was built.
+          type: integer
+        medianHouseValue:
+          description: The median value of the residence, where A = < $50, 000; B
+            = $50, 000 - $99, 999; C = $100, 000 - $149, 999; D = $150, 000 - $249,
+            999; E = $250, 000 - $349, 999; F = $350, 000 - $499, 999; G = $500, 000
+            - $749, 999; H = $750, 000 - $999, 999; I = > $999,999.
+          enum:
+          - A
+          - B
+          - C
+          - D
+          - E
+          - F
+          - G
+          - H
+          - I
+          type: string
+        dwelling:
+          $ref: '#/components/schemas/demographicsAppendResponse_demographics_residence_dwelling'
+        isMobileHome:
+          description: Indicates whether the residence is flagged as a mobile home.
+          type: boolean
+        hasFireplace:
+          description: Indicates whether the residence is flagged as having a fireplace.
+          type: boolean
+      type: object
+    demographicsAppendResponse_demographics_family_children:
+      example:
+        childrenAge: A
+        hasChildren: true
+        numberChildren: A
+      properties:
+        hasChildren:
+          description: Indicates whether the person is flagged as having children.
+          type: boolean
+        childrenAge:
+          description: The age range of the children for the person, where A = under
+            5 years old; B = between 6 and 10 years old; C = between 11 and 15 years
+            old; D = above 15 years old.
+          enum:
+          - A
+          - B
+          - C
+          - D
+          type: string
+        numberChildren:
+          description: The number of children for the person, where A = no children;
+            B = less than 3 children; C = between 3 and 5 children.
+          enum:
+          - A
+          - B
+          - C
+          type: string
+      type: object
+    demographicsAppendResponse_demographics_family:
+      example:
+        children:
+          childrenAge: A
+          hasChildren: true
+          numberChildren: A
+        isSingleParent: true
+        married: INFERREDMARRIED
+      properties:
+        isSingleParent:
+          description: Indicates whether the person is flagged as being a single parent.
+          type: boolean
+        children:
+          $ref: '#/components/schemas/demographicsAppendResponse_demographics_family_children'
+        married:
+          description: The marital status for the person.
+          enum:
+          - INFERREDMARRIED
+          - INFERREDSINGLE
+          - SINGLE
+          - MARRIED
+          type: string
+      type: object
+    demographicsAppendResponse_demographics_vehicle:
+      example:
+        ownsSuvVehicle: true
+        ownsPickupVehicle: true
+        percentVehicleOwner: 4
+        ownsLuxuryVehicle: true
+      properties:
+        ownsSuvVehicle:
+          description: Indicates whether the person is flagged as owning an SUV.
+          type: boolean
+        ownsLuxuryVehicle:
+          description: Indicates whether the person is flagged as owning a luxury
+            vehicle.
+          type: boolean
+        ownsPickupVehicle:
+          description: Indicates whether the person is flagged as owning a pickup
+            truck.
+          type: boolean
+        percentVehicleOwner:
+          description: The Penetration Percentage for indicating whether the person
+            owns a vehicle, +/- 3%.
+          type: integer
+      type: object
+    demographicsAppendResponse_demographics:
+      example:
+        level: ZIP9
+        person:
+          workerType:
+            percentWhiteCollar: 7
+            percentBlueCollar: 9
+            percentOther: 3
+          education:
+            level: HIGHSCHOOL
+            medianYearsSchooling: 6
+          gender: M
+          ethnicity: ASIAN
+          race:
+            percentAsian: 2
+            percentBlack: 5
+            percentHispanic: 1
+            percentWhite: 5
+          isSenior: true
+          dateOfBirth: dateOfBirth
+          language:
+            percentSpanishSpeaker: 4
+            percentAsianSpeaker: 7
+            percentEnglishSpeaker: 1
+          percentMailOrderRespondent: 2
+          finances:
+            estimatedNetWorth: A
+            isCharityDonar: true
+            usesCreditCard: true
+            estimatedIncome: A
+          age: 1
+        residence:
+          homeowner: TENANT
+          isMobileHome: true
+          medianHouseValue: A
+          hasFireplace: true
+          yearHomeBuilt: 6
+          dwelling:
+            percentSingleFamily: 7
+            percentMultipleFamily: 1
+            type: SINGLEFAMILY
+          estimatedMarketValue: A
+          hasPool: true
+          lengthOfResidence: 1
+        family:
+          children:
+            childrenAge: A
+            hasChildren: true
+            numberChildren: A
+          isSingleParent: true
+          married: INFERREDMARRIED
+        vehicle:
+          ownsSuvVehicle: true
+          ownsPickupVehicle: true
+          percentVehicleOwner: 4
+          ownsLuxuryVehicle: true
+      properties:
+        level:
+          description: The demographics level for the data.
+          enum:
+          - ZIP9
+          - ZIP7
+          - ZIP5
+          type: string
+        person:
+          $ref: '#/components/schemas/demographicsAppendResponse_demographics_person'
+        residence:
+          $ref: '#/components/schemas/demographicsAppendResponse_demographics_residence'
+        family:
+          $ref: '#/components/schemas/demographicsAppendResponse_demographics_family'
+        vehicle:
+          $ref: '#/components/schemas/demographicsAppendResponse_demographics_vehicle'
+      type: object
+    lookupResponse_address:
+      example:
+        zipcode: zipcode
+        postDirection: postDirection
+        unitType: unitType
+        streetType: streetType
+        streetName: streetName
+        city: city
+        streetNumber: streetNumber
+        preDirection: preDirection
+        unitNumber: unitNumber
+        state: state
+      properties:
+        zipcode:
+          type: string
+        unitNumber:
+          type: string
+        city:
+          type: string
+        postDirection:
+          type: string
+        streetNumber:
+          type: string
+        preDirection:
+          type: string
+        streetType:
+          type: string
+        state:
+          type: string
+        unitType:
+          type: string
+        streetName:
+          type: string
+      type: object
+    phoneVerifyResponse_phone:
+      example:
+        phoneType: L
+        phone: phone
+      properties:
+        phoneType:
+          description: 'The phone type, where: L = ''Landline'', V = ''VoIP'', W =
+            ''Wireless'', and O = ''Other''.'
+          enum:
+          - L
+          - V
+          - W
+          - O
+          type: string
+        phone:
+          description: The phone number.
+          type: string
+      type: object
+    skipTracingLookupResponse_addresses:
+      example:
+        previousAddresses:
+        - zipcode: zipcode
+          postDirection: postDirection
+          unitType: unitType
+          streetType: streetType
+          streetName: streetName
+          city: city
+          streetNumber: streetNumber
+          preDirection: preDirection
+          unitNumber: unitNumber
+          state: state
+        - zipcode: zipcode
+          postDirection: postDirection
+          unitType: unitType
+          streetType: streetType
+          streetName: streetName
+          city: city
+          streetNumber: streetNumber
+          preDirection: preDirection
+          unitNumber: unitNumber
+          state: state
+        primaryAddress:
+          zipcode: zipcode
+          postDirection: postDirection
+          unitType: unitType
+          streetType: streetType
+          streetName: streetName
+          city: city
+          streetNumber: streetNumber
+          preDirection: preDirection
+          unitNumber: unitNumber
+          state: state
+      properties:
+        previousAddresses:
+          description: A list of the person's previous addresses.
+          items:
+            $ref: '#/components/schemas/ipLookupResponse_address'
+          type: array
+        primaryAddress:
+          $ref: '#/components/schemas/ipLookupResponse_address'
+      type: object
+    skipTracingLookupResponse_names_aliases:
+      example:
+        lastName: lastName
+        firstName: firstName
+        middleName: middleName
+      properties:
+        lastName:
+          description: The last name for the person.
+          type: string
+        middleName:
+          description: The middle name for the person.
+          type: string
+        firstName:
+          description: The first name for the person.
+          type: string
+      type: object
+    skipTracingLookupResponse_names:
+      example:
+        aliases:
+        - lastName: lastName
+          firstName: firstName
+          middleName: middleName
+        - lastName: lastName
+          firstName: firstName
+          middleName: middleName
+        primaryName:
+          lastName: lastName
+          firstName: firstName
+          middleName: middleName
+      properties:
+        aliases:
+          description: A list of the person's aliases.
+          items:
+            $ref: '#/components/schemas/skipTracingLookupResponse_names_aliases'
+          type: array
+        primaryName:
+          $ref: '#/components/schemas/skipTracingLookupResponse_names_aliases'
+      type: object
+    skipTracingLookupResponse_demographics:
+      example:
+        dateOfDeath: 0
+        dateOfBirth: 6
+      properties:
+        dateOfDeath:
+          description: The person's date of death.
+          type: integer
+        dateOfBirth:
+          description: The person's date of birth.
+          type: integer
+      type: object
+    vehicleAppendResponse_vehicles:
+      example:
+        year: year
+        model: model
+        make: make
+      properties:
+        year:
+          type: string
+        model:
+          type: string
+        make:
+          type: string
+      type: object
+    disconnectVerifyResponse_phone:
+      example:
+        phoneType: L
+        confidenceScore: 0
+        phone: phone
+        provider: provider
+        recordType: PAYPHONE
+        lastDateReceived: lastDateReceived
+        directInwardDialNumber: true
+        initialDateReceived: initialDateReceived
+        operatingCompanyNumber: operatingCompanyNumber
+        directoryAssistance: PRIVATE
+      properties:
+        phoneType:
+          description: 'The phone type, where: L = ''Landline'', V = ''VoIP'', W =
+            ''Wireless'', and O = ''Other''.'
+          enum:
+          - L
+          - V
+          - W
+          - O
+          type: string
+        phone:
+          description: The phone number.
+          type: string
+        provider:
+          description: The name of the phone provider.
+          type: string
+        operatingCompanyNumber:
+          description: The 4 character alphanumeric phone operating company number.
+          type: string
+        confidenceScore:
+          description: The telephone confidence score, ranging between 1 and 7, where
+            1 indicates highest confidence and 7 indicates unconfirmed.
+          type: integer
+        initialDateReceived:
+          description: 'The date the record was first received, formatted: YYYYMMDD'
+          type: string
+        lastDateReceived:
+          description: 'The date the reocrd was last received as connected, formatted:
+            YYYYMMDD'
+          type: string
+        directoryAssistance:
+          description: The directory assistance indicator.
+          enum:
+          - PRIVATE
+          - REMOVED
+          - EXISTS
+          type: string
+        recordType:
+          description: The phone record type.
+          enum:
+          - PAYPHONE
+          - RESIDENTIAL
+          - BUSINESS
+          - UNKNOWN
+          type: string
+        directInwardDialNumber:
+          description: Indicates whether or not the phone is flagged as a Direct Inward
+            Dial Number.
+          type: boolean
+      type: object
+  securitySchemes:
+    apiKey:
+      description: |
+        An api key can be obtained by signing up for a Stakkd platform account. Contact [sales@stakkd.io](mailto:sales@stakkd.io)
+        to get access to the Stakkd platform.
+      in: header
+      name: x-api-key
+      type: apiKey
+x-tagGroups:
+- name: Append
+  tags:
+  - append
+- name: Lookup
+  tags:
+  - lookup
+- name: Verify
+  tags:
+  - verify
+- name: Standardize
+  tags:
+  - standardize
