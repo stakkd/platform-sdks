@@ -1,7 +1,20 @@
 # Stakkd API API Client
 
+# Introduction
 
-# Introduction\nThe Stakkd platform provides comprehensive data services that meet the business\nobjectives of organizations ranging from Fortune 500 companies to startups.\nOur clients work in an array of industries, including insurance, financial, legal, travel, hospitality, retail, health, media, and telecommunications.\n\nThe Stakkd API is documented using the Open API 3.0.1 standard.\n\nAll endpoints are available at https://api.stakkd.io/v1. Detailed documentation for each endpoint is below, including the full URL for the endpoint.\n\n# Account Types\nThe API supports two different account types, each with different permissions.\n\n## Paid Account\nPaid accounts provide unlimited access to all of the URIs.\n\n## Trial Account\nTrial Accounts have a limited number of queries to the APIs. Keep in mind that\nqueries which do not return results still count against the Trial Account query limits.\nTrial Accounts are temporary, but can be upgraded or extended by contacting [support@stakkd.io](mailto:support@stakkd.io)\n
+The Stakkd platform provides comprehensive data services that meet the business objectives of organizations ranging from Fortune 500 companies to startups. Our clients work in an array of industries, including insurance, financial, legal, travel, hospitality, retail, health, media, and telecommunications. The Stakkd API is documented using the Open API 3.0.1 standard. All endpoints are available at https://api.stakkd.io/v1. Detailed documentation for each endpoint is below, including the full URL for the endpoint.
+
+# Account Types
+
+The API supports two different account types, each with different permissions.
+
+## Paid Account
+
+Paid accounts provide unlimited access to all of the URIs.
+
+## Trial Account
+
+Trial Accounts have a limited number of queries to the APIs. Keep in mind that queries which do not return results still count against the Trial Account query limits. Trial Accounts are temporary, but can be upgraded or extended by contacting [support@stakkd.io](mailto:support@stakkd.io)
 
 ## Requirements
 
@@ -33,9 +46,9 @@ If everything is set correctly:
 
 5. Retrieve the job id from the console and check the test results.
 
-  ```bash
-  sfdx force:apex:test:report -i theJobId
-  ```
+```bash
+sfdx force:apex:test:report -i theJobId
+```
 
 ## Getting Started
 
@@ -65,80 +78,74 @@ try {
 
 All URIs are relative to *https://api.stakkd.io/v1*
 
-Class | Method | HTTP request | Description
------------- | ------------- | ------------- | -------------
-*OASAppendApi* | [**appendDemographicsPost**](OASAppendApi.md#appendDemographicsPost) | **POST** /append/demographics | 
-*OASAppendApi* | [**appendEmailPost**](OASAppendApi.md#appendEmailPost) | **POST** /append/email | 
-*OASAppendApi* | [**appendMobilePost**](OASAppendApi.md#appendMobilePost) | **POST** /append/mobile | 
-*OASAppendApi* | [**appendPhonePost**](OASAppendApi.md#appendPhonePost) | **POST** /append/phone | 
-*OASAppendApi* | [**appendVehiclePost**](OASAppendApi.md#appendVehiclePost) | **POST** /append/vehicle | 
-*OASLookupApi* | [**lookupEmailPost**](OASLookupApi.md#lookupEmailPost) | **POST** /lookup/email | 
-*OASLookupApi* | [**lookupIpPost**](OASLookupApi.md#lookupIpPost) | **POST** /lookup/ip | 
-*OASLookupApi* | [**lookupMobilePost**](OASLookupApi.md#lookupMobilePost) | **POST** /lookup/mobile | 
-*OASLookupApi* | [**lookupPhonePost**](OASLookupApi.md#lookupPhonePost) | **POST** /lookup/phone | 
-*OASLookupApi* | [**lookupSkipTracingPost**](OASLookupApi.md#lookupSkipTracingPost) | **POST** /lookup/skip-tracing | 
-*OASStandardizeApi* | [**standardizeAddressPost**](OASStandardizeApi.md#standardizeAddressPost) | **POST** /standardize/address | 
-*OASVerifyApi* | [**verifyDisconnectPost**](OASVerifyApi.md#verifyDisconnectPost) | **POST** /verify/disconnect | 
-*OASVerifyApi* | [**verifyEmailPost**](OASVerifyApi.md#verifyEmailPost) | **POST** /verify/email | 
-*OASVerifyApi* | [**verifyPhonePost**](OASVerifyApi.md#verifyPhonePost) | **POST** /verify/phone | 
-*OASVerifyApi* | [**verifyTcpaPost**](OASVerifyApi.md#verifyTcpaPost) | **POST** /verify/tcpa | 
-
+| Class               | Method                                                                    | HTTP request                  | Description |
+| ------------------- | ------------------------------------------------------------------------- | ----------------------------- | ----------- |
+| _OASAppendApi_      | [**appendDemographicsPost**](OASAppendApi.md#appendDemographicsPost)      | **POST** /append/demographics |
+| _OASAppendApi_      | [**appendEmailPost**](OASAppendApi.md#appendEmailPost)                    | **POST** /append/email        |
+| _OASAppendApi_      | [**appendMobilePost**](OASAppendApi.md#appendMobilePost)                  | **POST** /append/mobile       |
+| _OASAppendApi_      | [**appendPhonePost**](OASAppendApi.md#appendPhonePost)                    | **POST** /append/phone        |
+| _OASAppendApi_      | [**appendVehiclePost**](OASAppendApi.md#appendVehiclePost)                | **POST** /append/vehicle      |
+| _OASLookupApi_      | [**lookupEmailPost**](OASLookupApi.md#lookupEmailPost)                    | **POST** /lookup/email        |
+| _OASLookupApi_      | [**lookupIpPost**](OASLookupApi.md#lookupIpPost)                          | **POST** /lookup/ip           |
+| _OASLookupApi_      | [**lookupMobilePost**](OASLookupApi.md#lookupMobilePost)                  | **POST** /lookup/mobile       |
+| _OASLookupApi_      | [**lookupPhonePost**](OASLookupApi.md#lookupPhonePost)                    | **POST** /lookup/phone        |
+| _OASLookupApi_      | [**lookupSkipTracingPost**](OASLookupApi.md#lookupSkipTracingPost)        | **POST** /lookup/skip-tracing |
+| _OASStandardizeApi_ | [**standardizeAddressPost**](OASStandardizeApi.md#standardizeAddressPost) | **POST** /standardize/address |
+| _OASVerifyApi_      | [**verifyDisconnectPost**](OASVerifyApi.md#verifyDisconnectPost)          | **POST** /verify/disconnect   |
+| _OASVerifyApi_      | [**verifyEmailPost**](OASVerifyApi.md#verifyEmailPost)                    | **POST** /verify/email        |
+| _OASVerifyApi_      | [**verifyPhonePost**](OASVerifyApi.md#verifyPhonePost)                    | **POST** /verify/phone        |
+| _OASVerifyApi_      | [**verifyTcpaPost**](OASVerifyApi.md#verifyTcpaPost)                      | **POST** /verify/tcpa         |
 
 ## Documentation for Models
 
- - [OASAddressStandardizeRequest](OASAddressStandardizeRequest.md)
- - [OASAddressStandardizeResponse](OASAddressStandardizeResponse.md)
- - [OASDemographicsAppendRequest](OASDemographicsAppendRequest.md)
- - [OASDemographicsAppendResponse](OASDemographicsAppendResponse.md)
- - [OASDemographicsAppendResponseDemogra](OASDemographicsAppendResponseDemogra.md)
- - [OASDemographicsAppendResponseLifeSty](OASDemographicsAppendResponseLifeSty.md)
- - [OASDemographicsAppendResponsePhones](OASDemographicsAppendResponsePhones.md)
- - [OASDisconnectVerifyRequest](OASDisconnectVerifyRequest.md)
- - [OASDisconnectVerifyResponse](OASDisconnectVerifyResponse.md)
- - [OASDisconnectVerifyResponsePhone](OASDisconnectVerifyResponsePhone.md)
- - [OASEmailAppendRequest](OASEmailAppendRequest.md)
- - [OASEmailAppendResponse](OASEmailAppendResponse.md)
- - [OASEmailLookupRequest](OASEmailLookupRequest.md)
- - [OASEmailVerifyRequest](OASEmailVerifyRequest.md)
- - [OASEmailVerifyResponse](OASEmailVerifyResponse.md)
- - [OASIpLookupRequest](OASIpLookupRequest.md)
- - [OASIpLookupResponse](OASIpLookupResponse.md)
- - [OASIpLookupResponseAddress](OASIpLookupResponseAddress.md)
- - [OASLookupResponse](OASLookupResponse.md)
- - [OASLookupResponseAddress](OASLookupResponseAddress.md)
- - [OASMobileAppendRequest](OASMobileAppendRequest.md)
- - [OASMobileAppendResponse](OASMobileAppendResponse.md)
- - [OASPhoneAppendRequest](OASPhoneAppendRequest.md)
- - [OASPhoneAppendResponse](OASPhoneAppendResponse.md)
- - [OASPhoneLookupRequest](OASPhoneLookupRequest.md)
- - [OASPhoneVerifyRequest](OASPhoneVerifyRequest.md)
- - [OASPhoneVerifyResponse](OASPhoneVerifyResponse.md)
- - [OASPhoneVerifyResponsePhone](OASPhoneVerifyResponsePhone.md)
- - [OASSkipTracingLookupRequest](OASSkipTracingLookupRequest.md)
- - [OASSkipTracingLookupResponse](OASSkipTracingLookupResponse.md)
- - [OASSkipTracingLookupResponseAddresse](OASSkipTracingLookupResponseAddresse.md)
- - [OASSkipTracingLookupResponseDemograp](OASSkipTracingLookupResponseDemograp.md)
- - [OASSkipTracingLookupResponseNames](OASSkipTracingLookupResponseNames.md)
- - [OASSkipTracingLookupResponseNamesAli](OASSkipTracingLookupResponseNamesAli.md)
- - [OASTcpaVerifyRequest](OASTcpaVerifyRequest.md)
- - [OASTcpaVerifyResponse](OASTcpaVerifyResponse.md)
- - [OASVehicleAppendRequest](OASVehicleAppendRequest.md)
- - [OASVehicleAppendResponse](OASVehicleAppendResponse.md)
- - [OASVehicleAppendResponseVehicles](OASVehicleAppendResponseVehicles.md)
-
+- [OASAddressStandardizeRequest](OASAddressStandardizeRequest.md)
+- [OASAddressStandardizeResponse](OASAddressStandardizeResponse.md)
+- [OASDemographicsAppendRequest](OASDemographicsAppendRequest.md)
+- [OASDemographicsAppendResponse](OASDemographicsAppendResponse.md)
+- [OASDemographicsAppendResponseDemogra](OASDemographicsAppendResponseDemogra.md)
+- [OASDemographicsAppendResponseLifeSty](OASDemographicsAppendResponseLifeSty.md)
+- [OASDemographicsAppendResponsePhones](OASDemographicsAppendResponsePhones.md)
+- [OASDisconnectVerifyRequest](OASDisconnectVerifyRequest.md)
+- [OASDisconnectVerifyResponse](OASDisconnectVerifyResponse.md)
+- [OASDisconnectVerifyResponsePhone](OASDisconnectVerifyResponsePhone.md)
+- [OASEmailAppendRequest](OASEmailAppendRequest.md)
+- [OASEmailAppendResponse](OASEmailAppendResponse.md)
+- [OASEmailLookupRequest](OASEmailLookupRequest.md)
+- [OASEmailVerifyRequest](OASEmailVerifyRequest.md)
+- [OASEmailVerifyResponse](OASEmailVerifyResponse.md)
+- [OASIpLookupRequest](OASIpLookupRequest.md)
+- [OASIpLookupResponse](OASIpLookupResponse.md)
+- [OASIpLookupResponseAddress](OASIpLookupResponseAddress.md)
+- [OASLookupResponse](OASLookupResponse.md)
+- [OASLookupResponseAddress](OASLookupResponseAddress.md)
+- [OASMobileAppendRequest](OASMobileAppendRequest.md)
+- [OASMobileAppendResponse](OASMobileAppendResponse.md)
+- [OASPhoneAppendRequest](OASPhoneAppendRequest.md)
+- [OASPhoneAppendResponse](OASPhoneAppendResponse.md)
+- [OASPhoneLookupRequest](OASPhoneLookupRequest.md)
+- [OASPhoneVerifyRequest](OASPhoneVerifyRequest.md)
+- [OASPhoneVerifyResponse](OASPhoneVerifyResponse.md)
+- [OASPhoneVerifyResponsePhone](OASPhoneVerifyResponsePhone.md)
+- [OASSkipTracingLookupRequest](OASSkipTracingLookupRequest.md)
+- [OASSkipTracingLookupResponse](OASSkipTracingLookupResponse.md)
+- [OASSkipTracingLookupResponseAddresse](OASSkipTracingLookupResponseAddresse.md)
+- [OASSkipTracingLookupResponseDemograp](OASSkipTracingLookupResponseDemograp.md)
+- [OASSkipTracingLookupResponseNames](OASSkipTracingLookupResponseNames.md)
+- [OASSkipTracingLookupResponseNamesAli](OASSkipTracingLookupResponseNamesAli.md)
+- [OASTcpaVerifyRequest](OASTcpaVerifyRequest.md)
+- [OASTcpaVerifyResponse](OASTcpaVerifyResponse.md)
+- [OASVehicleAppendRequest](OASVehicleAppendRequest.md)
+- [OASVehicleAppendResponse](OASVehicleAppendResponse.md)
+- [OASVehicleAppendResponseVehicles](OASVehicleAppendResponseVehicles.md)
 
 ## Documentation for Authorization
 
 Authentication schemes defined for the API:
-### apiKey
 
+### apiKey
 
 - **Type**: API key
 - **API key parameter name**: x-api-key
 - **Location**: HTTP header
 
-
 ## Author
-
-
-
